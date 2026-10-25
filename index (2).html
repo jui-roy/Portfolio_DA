@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jui Roy – Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1F4F6;--surface:#FFFFFF;--ink:#17283A;--muted:#566677;--line:#D5DDE3;--a:#0E6B8C;--b:#D9922B;--c:#8A4F7D;--d:#4C8C5A;--neg:#B8432F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101A24;--surface:#182533;--ink:#E7EDF2;--muted:#9AABBA;--line:#2B3C4D;--a:#4FB6D8;--b:#F0B44F;--c:#C58BB8;--d:#7CC48B;--neg:#F0806B}}
+:root[data-theme="dark"]{--bg:#101A24;--surface:#182533;--ink:#E7EDF2;--muted:#9AABBA;--line:#2B3C4D;--a:#4FB6D8;--b:#F0B44F;--c:#C58BB8;--d:#7CC48B;--neg:#F0806B}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Georgia,sans-serif;line-height:1.1;margin:0}
+a{color:var(--a)}
+:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+nav b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem}
+nav div{display:flex;gap:20px}
+nav a{color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 40px}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.025em;max-width:15ch}
+.hero p{max-width:56ch;color:var(--muted);font-size:1.15rem;margin:22px 0 28px}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:600;margin-right:10px}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+section{padding:48px 0}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:700;margin-bottom:10px}
+.lede{color:var(--muted);max-width:62ch;margin:0 0 28px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.ctrl{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{font:inherit;font-size:.92rem;font-weight:500;background:transparent;color:var(--muted);border:0;padding:8px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--a);color:#fff}
+.ctrl label{font-size:.85rem;color:var(--muted);display:block;margin-bottom:4px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:18px}
+.kpi{border-left:4px solid var(--a);padding:2px 0 2px 14px}
+.kpi span{display:block;font-size:.85rem;color:var(--muted)}
+.kpi strong{font:700 1.8rem 'Bricolage Grotesque',sans-serif}
+.charts{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media(max-width:760px){.charts{grid-template-columns:1fr}nav div{gap:14px}}
+.charts.eq{grid-template-columns:1fr 1fr;margin-top:20px}@media(max-width:760px){.charts.eq{grid-template-columns:1fr}}.charts.one{grid-template-columns:1fr;margin-top:20px}.chips span{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 10px;margin:0 6px 6px 0;font-size:.85rem;color:var(--muted)}.xl ul{margin:8px 0;padding-left:20px;max-width:70ch}.xl+.xl{margin-top:20px}.legend{display:inline-flex;gap:14px;font:400 .85rem Figtree,sans-serif;color:var(--muted);margin-left:10px}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:600}details p{margin:8px 0 0;color:var(--muted);max-width:70ch}.charts h3{font-size:1.05rem;margin-bottom:8px}
+svg{width:100%;height:auto;display:block;overflow:visible}
+svg text{fill:var(--muted);font:12px Figtree,sans-serif}
+.find{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.find h3{font-size:1.1rem;margin-bottom:6px}
+.find p{margin:6px 0;max-width:70ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.meta div{font-size:.95rem;color:var(--muted)}
+.meta strong{color:var(--ink);display:block}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.skills .panel h3{font-size:1.1rem;margin-bottom:8px}
+.skills ul{margin:0;padding-left:18px;color:var(--muted)}
+footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);padding:5px 9px;border-radius:6px;font-size:.82rem;display:none;white-space:nowrap}
+.chartbox{position:relative}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Jui Roy</b><div><a href="#project">Superstore</a><a href="#churn">Churn</a><a href="#excel">Excel</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero">
+<h1>I turn messy data into decisions people act on.</h1>
+<p>Data analyst skilled in SQL, Python and dashboards. Below is a full case study of the well-known Superstore dataset: sales grew every year, but where did the business quietly lose money? A second study asks why telecom customers leave.</p>
+<a class="btn" href="#project">Explore the case study</a><a class="btn alt" href="#contact">Get in touch</a>
+</header>
+
+<section id="project">
+<h2>Case study: Where does Superstore make and lose money?</h2>
+<p class="lede">Business question: sales grew every year after 2015, but is the business actually profitable, and which products and discount levels leak profit? Filter by year and region; the charts and findings update.</p>
+<div class="panel">
+<div class="ctrl">
+<div><label>Year</label><div class="seg" id="years"></div></div>
+<div><label>Region</label><div class="seg" id="regions"></div></div>
+</div>
+<div class="kpis" id="kpis"></div>
+<div class="charts">
+<div><h3>Monthly sales and profit <span class="legend"><span><i style="background:var(--a)"></i>Sales</span><span><i style="background:var(--b)"></i>Profit</span></span></h3><div class="chartbox" id="lineBox"></div></div>
+<div><h3>Profit margin by discount level</h3><div class="chartbox" id="discBox"></div></div>
+</div>
+<div class="charts one"><div><h3>Profit by product sub-category</h3><div class="chartbox" id="subBox"></div></div></div>
+<div class="find" id="find"></div>
+<div class="meta">
+<div><strong>Data</strong>Sample Superstore (Tableau): 9,994 order lines, 5,009 orders, 793 customers, Jan 2014 to Dec 2017. No missing values.</div>
+<div><strong>Method</strong>Loaded in Python (pandas), grouped by year, region, sub-category and discount band, then compared margins (profit divided by sales).</div>
+<div><strong>Caveat</strong>The Returns sheet lists 296 returned orders (about 7.9% of sales value). Figures here are before returns.</div>
+</div>
+<div class="find"><h3>Interview talking points</h3>
+<details><summary>What was the headline insight?</summary><p>Overall margin is 12.5% on $2.30M of sales, but order lines discounted over 40% (933 of 9,994) run at a margin of about minus 77%. Heavy discounting is the single biggest profit leak.</p></details>
+<details><summary>Which products lose money?</summary><p>Tables (about minus $17.7K), Bookcases (minus $3.5K) and Supplies (minus $1.2K) are loss-making over four years, even though Tables and Bookcases bring in real revenue. Checking their discount levels is the first step.</p></details>
+<details><summary>How did you approach it?</summary><p>Checked data quality, split results by time, region, product and discount band, then used margin rather than raw profit so large and small segments compare fairly. Each chart answers one question.</p></details>
+<details><summary>What would you do next?</summary><p>Cap discounts around 20% on furniture, test it on one region, and measure margin and volume for a quarter. I would also net returns out of sales and add customer-level analysis.</p></details>
+<details><summary>What are the limits of this analysis?</summary><p>Discount is correlated with loss here, but this is observational data, so it does not prove discounts alone cause the loss. Product cost and promotion reasons are missing.</p></details>
+</div>
+</div>
+</section>
+
+<section id="churn">
+<h2>Case study: Why do telecom customers leave?</h2>
+<p class="lede">Business question: about one in four customers cancels. Who is most at risk, and how much monthly revenue walks out the door? Filter by contract and internet service to see how the picture changes.</p>
+<div class="panel">
+<div class="ctrl">
+<div><label>Contract</label><div class="seg" id="cContract"></div></div>
+<div><label>Internet service</label><div class="seg" id="cInternet"></div></div>
+</div>
+<div class="kpis" id="cKpis"></div>
+<div class="charts eq">
+<div><h3>Churn rate by tenure (months)</h3><div class="chartbox" id="cTen"></div></div>
+<div><h3>Churn rate by contract</h3><div class="chartbox" id="cCon"></div></div>
+</div>
+<div class="charts eq">
+<div><h3>Churn rate by payment method</h3><div class="chartbox" id="cPay"></div></div>
+<div><h3>Churn rate by tech support</h3><div class="chartbox" id="cTec"></div></div>
+</div>
+<p class="lede" style="margin:14px 0 0;font-size:.9rem">Red bars are above the churn rate of the current selection.</p>
+<div class="find" id="cFind"></div>
+<div class="meta">
+<div><strong>Data</strong>Telco Customer Churn (IBM sample): 7,043 customers, 21 columns, one snapshot of a telecom provider.</div>
+<div><strong>Method</strong>Cleaned in Python (pandas), grouped customers by contract, internet service, tenure band, payment method and support, then compared churn rates.</div>
+<div><strong>Cleaning note</strong>TotalCharges is blank for 11 customers, all with 0 months of tenure (brand new). I left them out of any charge totals.</div>
+</div>
+<div class="find"><h3>Interview talking points</h3>
+<details><summary>What was the headline insight?</summary><p>Overall churn is 26.5% (1,869 of 7,043 customers), but month-to-month customers churn at 42.7% against 2.8% on two-year contracts. Contract type separates risk better than anything else.</p></details>
+<details><summary>Where is the revenue risk?</summary><p>Churned customers paid about $74 a month on average versus $61 for those who stayed. They account for roughly $139K of $456K in monthly charges, about 30%.</p></details>
+<details><summary>What surprised you?</summary><p>Electronic check users churn at 45.3%, versus 15 to 17% on automatic payments. Fiber optic customers churn at 41.9% versus 19.0% on DSL, which may point to price or service quality.</p></details>
+<details><summary>What would you recommend?</summary><p>Offer first-year customers on month-to-month plans a discount to switch to an annual contract with autopay, and bundle tech support, since customers with it churn at 15.2% versus 41.6% without.</p></details>
+<details><summary>What are the limits?</summary><p>Factors overlap: new customers are more often on month-to-month plans, so tenure and contract are tangled together. This shows association, not proof of cause, and a controlled test would be the next step.</p></details>
+</div>
+</div>
+</section>
+
+<section id="excel">
+<h2>Excel projects</h2>
+<p class="lede">Two workbooks built entirely in Excel, with live formulas instead of pasted numbers. Change the data and every table, chart and written finding recalculates.</p>
+<div class="panel xl">
+<h3>1. HR attrition dashboard</h3>
+<p class="lede" style="margin:8px 0 12px">Question: which employees are most likely to leave? Data: IBM HR Analytics sample, 1,470 employees. Overall attrition is 16.1% (237 leavers).</p>
+<div class="chips"><span>COUNTIFS</span><span>SUMIFS</span><span>Nested IF banding</span><span>IFERROR</span><span>Formula-built insights</span><span>4 native charts</span></div>
+<div class="chartbox" id="xHR"></div>
+<ul><li><b>Overtime:</b> employees working overtime leave at 30.5% versus 10.4% without it.</li><li><b>Role:</b> Sales Representatives leave at 39.8%; Research Directors at 2.5%.</li><li><b>Pay and tenure:</b> staff earning under $3K a month leave at 28.6% (8.9% at $10K+), and the first two years are the riskiest.</li></ul>
+<a class="btn alt" href="https://github.com/jui-roy/portfolio/tree/main/excel" target="_blank" rel="noopener">Download the workbook</a>
+<details><summary>How is the workbook structured?</summary><p>Three sheets: Data (raw columns plus formula helpers for income and tenure bands), Analysis (COUNTIFS and SUMIFS tables) and Dashboard (KPIs, charts and findings written with formulas, so they update when the data changes).</p></details>
+</div>
+<div class="panel xl">
+<h3>2. Netflix catalogue: cleaning and analysis</h3>
+<p class="lede" style="margin:8px 0 12px">Question: how did Netflix’s catalogue grow, and what is in it? Data: public Netflix titles file, 6,234 titles, with messy text columns cleaned using formulas only.</p>
+<div class="chips"><span>TRIM</span><span>LEFT / RIGHT / FIND</span><span>VALUE</span><span>COUNTBLANK</span><span>COUNTIF(S)</span><span>INDEX / MATCH</span><span>37K formulas</span></div>
+<div class="chartbox" id="xNF"></div>
+<ul><li><b>Growth:</b> additions rose from 90 titles in 2015 to 2,349 in 2019 (2020 is a partial year).</li><li><b>Mix:</b> 68% movies, averaging 99 minutes; the United States accounts for 36.9% of titles and Dramas is the top genre at 17.3%.</li><li><b>Data quality:</b> 31.6% of titles have no director and 7.6% no country. Blank countries are labelled “Unknown”, and titles are on average 4.6 years old when added.</li></ul>
+<a class="btn alt" href="https://github.com/jui-roy/portfolio/tree/main/excel" target="_blank" rel="noopener">Download the workbook</a>
+<details><summary>How did you clean the data?</summary><p>Year added comes from the last four characters of the trimmed date text, primary country and genre from the text before the first comma, and movie minutes from the number before the space in duration. Each step is a visible formula, and a cleaning log counts the blanks.</p></details>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<p class="lede">The tools I use to get from raw data to a clear recommendation.</p>
+<div class="skills">
+<div class="panel"><h3>Querying and cleaning</h3><ul><li>SQL (joins, window functions, CTEs)</li><li>Python: pandas, NumPy</li><li>Advanced Excel: COUNTIFS, SUMIFS, INDEX/MATCH, charts, dashboards</li></ul></div>
+<div class="panel"><h3>Analysis</h3><ul><li>Cohort and funnel analysis</li><li>A/B test interpretation</li><li>Statistics and forecasting basics</li></ul></div>
+<div class="panel"><h3>Communicating</h3><ul><li>Tableau and Power BI dashboards</li><li>Matplotlib and Plotly charts</li><li>Plain-language executive summaries</li></ul></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Let’s talk</h2>
+<p class="lede">I’m open to data analyst roles and freelance projects. The fastest way to reach me is email.</p>
+<a class="btn" href="mailto:juiroy721301@gmail.com">juiroy721301@gmail.com</a><a class="btn alt" href="https://www.linkedin.com/in/jui-roy/" target="_blank" rel="noopener">LinkedIn</a><a class="btn alt" href="https://github.com/jui-roy/" target="_blank" rel="noopener">GitHub</a>
+</section>
+<footer>© Jui Roy. Case studies use the public Sample Superstore and IBM Telco Customer Churn datasets.</footer>
+</div>
+
+<script>
+(function(){
+var DATA={"t1":[[2014,0,0,2939,24],[2014,0,1,436,-39],[2014,0,2,1540,118],[2014,0,3,9322,2347],[2014,1,0,1058,225],[2014,1,1,200,63],[2014,1,2,1233,295],[2014,1,3,2029,279],[2014,2,0,11009,1534],[2014,2,1,5943,-809],[2014,2,2,5828,-274],[2014,2,3,32911,48],[2014,3,0,9343,1629],[2014,3,1,3055,-221],[2014,3,2,3712,229],[2014,3,3,12185,1851],[2014,4,0,6570,874],[2014,4,1,7250,754],[2014,4,2,4049,-506],[2014,4,3,5779,1617],[2014,5,0,9629,1772],[2014,5,1,10759,980],[2014,5,2,9646,1246],[2014,5,3,4560,978],[2014,6,0,21809,1947],[2014,6,1,3568,847],[2014,6,2,6741,-4055],[2014,6,3,1829,420],[2014,7,0,13248,2561],[2014,7,1,4582,802],[2014,7,2,3022,628],[2014,7,3,7057,1327],[2014,8,0,14901,3076],[2014,8,1,25293,4175],[2014,8,2,34409,1423],[2014,8,3,7175,-345],[2014,9,0,8729,1391],[2014,9,1,8945,62],[2014,9,2,8966,1341],[2014,9,3,4814,654],[2014,10,0,23192,3151],[2014,10,1,33951,5592],[2014,10,2,14058,-794],[2014,10,3,7429,1343],[2014,11,0,25456,1881],[2014,11,1,24698,4854],[2014,11,2,10636,888],[2014,11,3,8756,1361],[2015,0,0,6027,600],[2015,0,1,4671,-1633],[2015,0,2,2511,-603],[2015,0,3,4966,-1645],[2015,1,0,1804,454],[2015,1,1,6463,1807],[2015,1,2,2528,331],[2015,1,3,1157,223],[2015,2,0,15662,4224],[2015,2,1,6012,1474],[2015,2,2,6730,51],[2015,2,3,10322,3983],[2015,3,0,9056,1333],[2015,3,1,7779,1095],[2015,3,2,11642,992],[2015,3,3,5718,767],[2015,4,0,12043,1641],[2015,4,1,7481,1634],[2015,4,2,8624,964],[2015,4,3,1984,429],[2015,5,0,5089,1034],[2015,5,1,7443,1630],[2015,5,2,3713,-421],[2015,5,3,8552,1092],[2015,6,0,7090,24],[2015,6,1,11873,2351],[2015,6,2,7606,305],[2015,6,3,2197,608],[2015,7,0,12548,1239],[2015,7,1,9464,912],[2015,7,2,9301,1032],[2015,7,3,5585,2173],[2015,8,0,13899,2451],[2015,8,1,29441,2512],[2015,8,2,7579,1563],[2015,8,3,13677,1683],[2015,9,0,14017,1778],[2015,9,1,6302,1460],[2015,9,2,7000,49],[2015,9,3,4086,-470],[2015,10,0,14549,1750],[2015,10,1,34725,7862],[2015,10,2,18903,3262],[2015,10,3,7796,-399],[2015,11,0,28183,3963],[2015,11,1,24679,-12],[2015,11,2,16738,4191],[2015,11,3,5320,-125],[2016,0,0,3658,644],[2016,0,1,4860,799],[2016,0,2,5942,474],[2016,0,3,4082,907],[2016,1,0,3100,388],[2016,1,1,3150,574],[2016,1,2,1116,-143],[2016,1,3,15613,4185],[2016,2,0,17559,1210],[2016,2,1,16765,2444],[2016,2,2,13154,-606],[2016,2,3,4238,564],[2016,3,0,10482,357],[2016,3,1,17840,3538],[2016,3,2,7462,-1344],[2016,3,3,2966,427],[2016,4,0,10694,1484],[2016,4,1,22589,3532],[2016,4,2,11744,1377],[2016,4,3,11960,2269],[2016,5,0,18598,2275],[2016,5,1,11737,1599],[2016,5,2,6553,190],[2016,5,3,3456,686],[2016,6,0,15281,2946],[2016,6,1,8524,-291],[2016,6,2,8894,806],[2016,6,3,6562,972],[2016,7,0,11818,1282],[2016,7,1,9265,412],[2016,7,2,6983,196],[2016,7,3,3050,173],[2016,8,0,23621,4276],[2016,8,1,20262,3168],[2016,8,2,17503,-564],[2016,8,3,12023,2448],[2016,9,0,15625,1418],[2016,9,1,15065,3682],[2016,9,2,25832,10761],[2016,9,3,3165,383],[2016,10,0,23923,4443],[2016,10,1,22982,-4842],[2016,10,2,16910,1471],[2016,10,3,15597,2940],[2016,11,0,33122,3327],[2016,11,1,27645,5528],[2016,11,2,25335,7281],[2016,11,3,10897,1749],[2017,0,0,12082,3208],[2017,0,1,5383,356],[2017,0,2,21691,2866],[2017,0,3,4816,710],[2017,1,0,9815,1648],[2017,1,1,4969,494],[2017,1,2,3335,-999],[2017,1,3,2183,470],[2017,2,0,29024,9115],[2017,2,1,7700,1188],[2017,2,2,15505,2055],[2017,2,3,6644,2394],[2017,3,0,13460,-1747],[2017,3,1,10231,1200],[2017,3,2,3383,125],[2017,3,3,9448,1357],[2017,4,0,15609,2651],[2017,4,1,6119,844],[2017,4,2,11589,1765],[2017,4,3,10944,1083],[2017,5,0,15920,2780],[2017,5,1,15161,3102],[2017,5,2,12967,1209],[2017,5,3,8934,1133],[2017,6,0,20768,4229],[2017,6,1,12322,1118],[2017,6,2,8873,1028],[2017,6,3,3302,578],[2017,7,0,25738,6146],[2017,7,1,20758,2183],[2017,7,2,6253,531],[2017,7,3,10372,181],[2017,8,0,27907,4885],[2017,8,1,32416,2493],[2017,8,2,17343,1130],[2017,8,3,10201,2484],[2017,9,0,21212,3283],[2017,9,1,32305,7638],[2017,9,2,12122,598],[2017,9,3,12137,-2243],[2017,10,0,28942,3443],[2017,10,1,45634,9390],[2017,10,2,15155,-1519],[2017,10,3,28717,-1625],[2017,11,0,29652,4169],[2017,11,1,20084,3225],[2017,11,2,18883,-1238],[2017,11,3,15210,2327]],"t2":[[2014,0,0,8926,1938],[2014,0,1,3755,1067],[2014,0,2,3380,752],[2014,0,3,12963,2535],[2014,0,4,6545,48],[2014,0,5,21407,1232],[2014,0,6,3000,1137],[2014,0,7,658,293],[2014,0,8,277,79],[2014,0,9,4372,1052],[2014,0,10,876,410],[2014,0,11,3500,1142],[2014,0,12,5386,2387],[2014,0,13,29527,2812],[2014,0,14,16313,2048],[2014,0,15,9238,404],[2014,0,16,17758,730],[2014,1,0,6054,1888],[2014,1,1,5779,1412],[2014,1,2,1290,333],[2014,1,3,6347,1161],[2014,1,4,10863,-426],[2014,1,5,22008,2719],[2014,1,6,4100,651],[2014,1,7,1348,525],[2014,1,8,97,32],[2014,1,9,3757,744],[2014,1,10,516,225],[2014,1,11,14636,4866],[2014,1,12,3917,1749],[2014,1,13,20689,3429],[2014,1,14,16207,1312],[2014,1,15,468,-23],[2014,1,16,10604,-3538],[2014,2,0,4439,891],[2014,2,1,3659,-509],[2014,2,2,822,188],[2014,2,3,15871,-1376],[2014,2,4,1834,-134],[2014,2,5,20754,699],[2014,2,6,3270,1035],[2014,2,7,1599,571],[2014,2,8,122,16],[2014,2,9,2536,-247],[2014,2,10,1048,482],[2014,2,11,16292,-2385],[2014,2,12,2347,896],[2014,2,13,9926,1481],[2014,2,14,11093,344],[2014,2,15,440,10],[2014,2,16,7785,-1424],[2014,3,0,5595,1686],[2014,3,1,2120,490],[2014,3,2,566,134],[2014,3,3,8307,2420],[2014,3,4,794,165],[2014,3,5,13072,2305],[2014,3,6,480,90],[2014,3,7,252,107],[2014,3,8,166,51],[2014,3,9,3161,423],[2014,3,10,401,170],[2014,3,11,27595,-3254],[2014,3,12,3185,1339],[2014,3,13,17249,4086],[2014,3,14,6715,462],[2014,3,15,4247,99],[2014,3,16,9941,1108],[2015,0,0,10676,3150],[2015,0,1,7725,1893],[2015,0,2,2035,543],[2015,0,3,3889,1027],[2015,0,4,9354,-990],[2015,0,5,23700,972],[2015,0,6,7510,2800],[2015,0,7,1355,627],[2015,0,8,140,51],[2015,0,9,7913,1900],[2015,0,10,1018,449],[2015,0,11,8372,938],[2015,0,12,5472,2414],[2015,0,13,18540,1850],[2015,0,14,15920,1604],[2015,0,15,309,62],[2015,0,16,16038,1203],[2015,1,0,17911,4688],[2015,1,1,6691,1851],[2015,1,2,1707,400],[2015,1,3,14207,4743],[2015,1,4,19653,-987],[2015,1,5,20009,2479],[2015,1,6,4960,1655],[2015,1,7,877,364],[2015,1,8,192,50],[2015,1,9,5270,737],[2015,1,10,516,213],[2015,1,11,14427,455],[2015,1,12,3968,1809],[2015,1,13,22561,3300],[2015,1,14,13309,1733],[2015,1,15,1188,-123],[2015,1,16,8885,-2276],[2015,2,0,7795,1531],[2015,2,1,4975,-2195],[2015,2,2,1132,248],[2015,2,3,5891,1370],[2015,2,4,8298,-885],[2015,2,5,17909,1677],[2015,2,6,12810,5160],[2015,2,7,871,347],[2015,2,8,89,25],[2015,2,9,2529,-758],[2015,2,10,305,127],[2015,2,11,1852,170],[2015,2,12,3544,1399],[2015,2,13,19364,3307],[2015,2,14,8331,437],[2015,2,15,324,22],[2015,2,16,6857,-265],[2015,3,0,4142,828],[2015,3,1,3850,963],[2015,3,2,1362,293],[2015,3,3,13467,457],[2015,3,4,1239,108],[2015,3,5,10117,1100],[2015,3,6,900,315],[2015,3,7,1409,622],[2015,3,8,125,46],[2015,3,9,5378,1172],[2015,3,10,1118,534],[2015,3,11,3113,1415],[2015,3,12,2303,949],[2015,3,13,7848,1942],[2015,3,14,7487,-268],[2015,3,15,130,15],[2015,3,16,7371,-2171],[2016,0,0,15482,3972],[2016,0,1,5001,1461],[2016,0,2,1120,323],[2016,0,3,12559,3876],[2016,0,4,8217,326],[2016,0,5,31227,1200],[2016,0,6,9780,3327],[2016,0,7,1559,738],[2016,0,8,264,63],[2016,0,9,7789,2104],[2016,0,10,1249,519],[2016,0,11,14794,-116],[2016,0,12,6447,3007],[2016,0,13,25925,2369],[2016,0,14,13041,1533],[2016,0,15,6440,325],[2016,0,16,26587,-976],[2016,1,0,6231,1260],[2016,1,1,9427,2303],[2016,1,2,1883,477],[2016,1,3,18956,2803],[2016,1,4,5964,-198],[2016,1,5,23010,1783],[2016,1,6,19760,5144],[2016,1,7,1305,557],[2016,1,8,344,112],[2016,1,9,9587,2135],[2016,1,10,779,336],[2016,1,11,25216,-1342],[2016,1,12,4926,2135],[2016,1,13,21290,2168],[2016,1,14,22096,2804],[2016,1,15,2086,-27],[2016,1,16,7825,-2307],[2016,2,0,10802,1888],[2016,2,1,6015,379],[2016,2,2,1520,261],[2016,2,3,14056,2919],[2016,2,4,8385,-468],[2016,2,5,23350,1504],[2016,2,6,17500,8400],[2016,2,7,971,372],[2016,2,8,247,83],[2016,2,9,5116,-1582],[2016,2,10,511,205],[2016,2,11,2659,57],[2016,2,12,5366,2205],[2016,2,13,19902,3415],[2016,2,14,12812,779],[2016,2,15,4295,-812],[2016,2,16,13923,293],[2016,3,0,9380,2544],[2016,3,1,5607,1159],[2016,3,2,1438,353],[2016,3,3,4112,618],[2016,3,4,3709,553],[2016,3,5,6331,1276],[2016,3,6,2560,872],[2016,3,7,896,400],[2016,3,8,105,35],[2016,3,9,5383,1278],[2016,3,10,288,133],[2016,3,11,13239,4308],[2016,3,12,3923,1724],[2016,3,13,11844,1508],[2016,3,14,10840,1088],[2016,3,15,1456,-185],[2016,3,16,12498,39],[2017,0,0,26030,7425],[2017,0,1,13754,3840],[2017,0,2,2677,756],[2017,0,3,26550,8660],[2017,0,4,11888,-1031],[2017,0,5,25447,623],[2017,0,6,29460,12063],[2017,0,7,546,251],[2017,0,8,243,82],[2017,0,9,9998,2585],[2017,0,10,1937,925],[2017,0,11,15778,-2584],[2017,0,12,9358,4311],[2017,0,13,24692,2080],[2017,0,14,25258,3461],[2017,0,15,2139,-165],[2017,0,16,24372,526],[2017,1,0,14837,3359],[2017,1,1,12291,2826],[2017,1,2,2606,690],[2017,1,3,13989,2561],[2017,1,4,7338,443],[2017,1,5,31233,2377],[2017,1,6,24400,9573],[2017,1,7,847,367],[2017,1,8,187,69],[2017,1,9,10457,2265],[2017,1,10,791,355],[2017,1,11,11827,2950],[2017,1,12,7362,3322],[2017,1,13,36075,3418],[2017,1,14,20000,2541],[2017,1,15,7018,-982],[2017,1,16,11826,-2905],[2017,2,0,10920,2941],[2017,2,1,8933,-313],[2017,2,2,2291,498],[2017,2,3,21105,-3957],[2017,2,4,5640,-511],[2017,2,5,23218,2712],[2017,2,6,3680,1014],[2017,2,7,1197,488],[2017,2,8,320,112],[2017,2,9,5074,-1320],[2017,2,10,587,260],[2017,2,11,5995,672],[2017,2,12,6235,2472],[2017,2,13,23211,4120],[2017,2,14,13694,409],[2017,2,15,4408,118],[2017,2,16,10589,-2163],[2017,3,0,8160,1947],[2017,3,1,7948,1512],[2017,3,2,1289,279],[2017,3,3,11143,406],[2017,3,4,5157,514],[2017,3,5,15656,1931],[2017,3,6,5360,2382],[2017,3,7,789,336],[2017,3,8,107,42],[2017,3,9,3386,569],[2017,3,10,546,204],[2017,3,11,9945,-3908],[2017,3,12,4740,1936],[2017,3,13,21363,3232],[2017,3,14,10725,992],[2017,3,15,2485,73],[2017,3,16,14106,-3599]],"t3":[[2014,0,0,53095,11645,355],[2014,0,1,92179,10534,289],[2014,0,3,2609,-2113,17],[2014,1,0,67410,20740,243],[2014,1,1,32858,3150,182],[2014,1,2,25419,-4488,52],[2014,1,3,2994,-2343,40],[2014,2,0,36530,11575,141],[2014,2,1,24065,3252,179],[2014,2,2,35830,-4046,44],[2014,2,3,7414,-10242,102],[2014,3,0,57925,14657,198],[2014,3,1,15861,2035,124],[2014,3,2,1274,-447,2],[2014,3,3,28786,-4365,25],[2015,0,0,60015,15958,334],[2015,0,1,77585,6888,284],[2015,0,3,2366,-2354,24],[2015,1,0,80065,25100,350],[2015,1,1,47867,7635,200],[2015,1,2,18815,-3902,48],[2015,1,3,9585,-7742,46],[2015,2,0,47182,14563,172],[2015,2,1,33476,5437,169],[2015,2,2,18257,-2387,43],[2015,2,3,3960,-5896,92],[2015,3,0,39258,13250,167],[2015,3,1,21101,1193,133],[2015,3,2,4298,-1862,1],[2015,3,3,6703,-4262,39],[2016,0,0,61256,16137,416],[2016,0,1,120625,12418,352],[2016,0,3,5599,-4503,37],[2016,1,0,90832,27425,389],[2016,1,1,42928,6884,255],[2016,1,2,36480,-3130,72],[2016,1,3,10446,-11037,50],[2016,2,0,83613,27703,229],[2016,2,1,35332,2465,222],[2016,2,2,22022,-2454,44],[2016,2,3,6462,-7815,108],[2016,3,0,61909,18077,214],[2016,3,1,25611,2043,147],[2016,3,2,2619,-908,6],[2016,3,3,3471,-1510,46],[2017,0,0,112665,32763,611],[2017,0,1,130988,18091,444],[2017,0,3,6475,-7045,40],[2017,1,0,103436,32113,467],[2017,1,1,67516,10564,301],[2017,1,2,38553,-6351,85],[2017,1,3,3578,-3096,68],[2017,2,0,75826,22284,286],[2017,2,1,36083,4819,282],[2017,2,2,22865,-2712,56],[2017,2,3,12324,-16841,154],[2017,3,0,56890,16998,226],[2017,3,1,42448,3378,240],[2017,3,2,7706,-3131,7],[2017,3,3,15862,-8396,45]],"S":["Accessories","Appliances","Art","Binders","Bookcases","Chairs","Copiers","Envelopes","Fasteners","Furnishings","Labels","Machines","Paper","Phones","Storage","Supplies","Tables"],"C":["Technology","Office Supplies","Office Supplies","Office Supplies","Furniture","Furniture","Technology","Office Supplies","Office Supplies","Furniture","Office Supplies","Technology","Office Supplies","Technology","Office Supplies","Office Supplies","Furniture"]};
+var YR=[2014,2015,2016,2017],RN=['West','East','Central','South'],BN=['No discount','1–20%','21–40%','Over 40%'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var sel={y:'All',r:'All'};
+function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+function money(v){var a=Math.abs(v),s=v<0?'-':'';return a>=1e6?s+'$'+(a/1e6).toFixed(2)+'M':a>=1e3?s+'$'+(a/1e3).toFixed(1)+'K':s+'$'+a.toFixed(0)}
+function pct(v){return (v*100).toFixed(1)+'%'}
+function F(t,ri,noYear){return t.filter(function(x){return(noYear||sel.y==='All'||x[0]===sel.y)&&(sel.r==='All'||x[ri]===RN.indexOf(sel.r))})}
+function S(a,i){return a.reduce(function(s,x){return s+x[i]},0)}
+function seg(id,items,key){var el=document.getElementById(id);el.innerHTML='';
+['All'].concat(items).forEach(function(x){var b=document.createElement('button');b.textContent=x;
+b.setAttribute('aria-pressed',String(sel[key]===x));b.onclick=function(){sel[key]=x;render()};el.appendChild(b)})}
+function line(){
+var W=560,H=250,p={l:56,r:10,t:10,b:28},rows=F(DATA.t1,2),yrs=sel.y==='All'?YR:[sel.y],n=yrs.length*12,sv=[],pv=[];
+for(var i=0;i<n;i++){var r=rows.filter(function(x){return x[0]===yrs[Math.floor(i/12)]&&x[1]===i%12});sv.push(S(r,3));pv.push(S(r,4))}
+var mx=Math.max.apply(null,sv)*1.1,x=function(i){return p.l+i*(W-p.l-p.r)/(n-1)},y=function(v){return H-p.b-v/mx*(H-p.t-p.b)};
+var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Monthly sales and profit">';
+for(var g=0;g<=4;g++){var gv=mx*g/4;s+='<line x1="'+p.l+'" x2="'+(W-p.r)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="'+css('--line')+'"/><text x="'+(p.l-6)+'" y="'+(y(gv)+4)+'" text-anchor="end">'+money(gv)+'</text>'}
+var ticks=sel.y==='All'?[0,12,24,36]:[0,3,6,9];
+ticks.forEach(function(i){s+='<text x="'+x(i)+'" y="'+(H-8)+'" text-anchor="middle">'+(sel.y==='All'?'Jan '+yrs[i/12]:MN[i])+'</text>'});
+[[sv,'--a'],[pv,'--b']].forEach(function(z){s+='<polyline fill="none" stroke="'+css(z[1])+'" stroke-width="2.4" points="'+z[0].map(function(v,i){return x(i)+','+y(v)}).join(' ')+'"/>'});
+sv.forEach(function(v,i){var lb=MN[i%12]+' '+yrs[Math.floor(i/12)];s+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="8" fill="transparent" data-t="'+lb+': sales '+money(v)+', profit '+money(pv[i])+'"/>'});
+return s+'</svg><div class="tip"></div>'}
+function hbars(items,W,rh,lw,lab){
+var vs=items.map(function(i){return i.v}),mn=Math.min(0,Math.min.apply(null,vs)),mxv=Math.max(0,Math.max.apply(null,vs)),pw=W-lw-70,x0=lw+(-mn)/((mxv-mn)||1)*pw,H=items.length*rh+6;
+var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+lab+'">';
+items.forEach(function(it,i){var yy=3+i*rh,w=Math.abs(it.v)/((mxv-mn)||1)*pw,neg=it.v<0;
+s+='<text x="0" y="'+(yy+rh*0.62)+'">'+it.l+'</text><rect x="'+(neg?x0-w:x0)+'" y="'+(yy+3)+'" width="'+Math.max(w,1)+'" height="'+(rh-8)+'" rx="3" fill="'+css(it.c||(neg?'--neg':'--a'))+'" data-t="'+it.l+': '+it.t+'"/><text x="'+(neg?x0+5:x0+w+5)+'" y="'+(yy+rh*0.62)+'">'+it.t+'</text>'});
+s+='<line x1="'+x0+'" x2="'+x0+'" y1="0" y2="'+H+'" stroke="'+css('--muted')+'"/>';
+return s+'</svg><div class="tip"></div>'}
+function tips(box){var t=box.querySelector('.tip');box.querySelectorAll('[data-t]').forEach(function(n){
+n.addEventListener('mouseenter',function(){t.textContent=n.dataset.t;t.style.display='block'});
+n.addEventListener('mousemove',function(e){var r=box.getBoundingClientRect();t.style.left=(e.clientX-r.left+12)+'px';t.style.top=(e.clientY-r.top-30)+'px'});
+n.addEventListener('mouseleave',function(){t.style.display='none'})})}
+function render(){
+seg('years',YR,'y');seg('regions',RN,'r');
+var t1=F(DATA.t1,2),sa=S(t1,3),pr=S(t1,4);
+document.getElementById('kpis').innerHTML='<div class="kpi"><span>Sales</span><strong>'+money(sa)+'</strong></div><div class="kpi"><span>Profit</span><strong>'+money(pr)+'</strong></div><div class="kpi"><span>Profit margin</span><strong>'+pct(pr/sa)+'</strong></div>';
+var lb=document.getElementById('lineBox');lb.innerHTML=line();tips(lb);
+var t3=F(DATA.t3,1),db=BN.map(function(b,i){var r=t3.filter(function(x){return x[2]===i}),s=S(r,3),p=S(r,4);return{l:b,v:s?p/s:0,t:pct(s?p/s:0),n:S(r,5)}});
+var dbx=document.getElementById('discBox');dbx.innerHTML=hbars(db,300,52,92,'Profit margin by discount level');tips(dbx);
+var t2=F(DATA.t2,1),sub=DATA.S.map(function(nm,i){return{l:nm,v:S(t2.filter(function(x){return x[2]===i}),4)}}).sort(function(a,b){return b.v-a.v});
+sub.forEach(function(s){s.t=money(s.v)});
+var sb=document.getElementById('subBox');sb.innerHTML=hbars(sub,700,28,100,'Profit by sub-category');tips(sb);
+var loss=sub.filter(function(s){return s.v<0}),regs=RN.map(function(r){var rr=DATA.t1.filter(function(x){return(sel.y==='All'||x[0]===sel.y)&&x[2]===RN.indexOf(r)});return{r:r,m:S(rr,4)/S(rr,3)}}).sort(function(a,b){return b.m-a.m});
+var sy=function(y){var rr=DATA.t1.filter(function(x){return x[0]===y&&(sel.r==='All'||x[2]===RN.indexOf(sel.r))});return{s:S(rr,3),p:S(rr,4)}},a=sy(2014),z=sy(2017);
+var heavy=db[3],f='<h3>What the data says'+(sel.r!=='All'?' ('+sel.r+')':'')+(sel.y!=='All'?', '+sel.y:'')+'</h3>';
+f+='<p><b>Growth:</b> from 2014 to 2017 sales rose '+((z.s/a.s-1)*100).toFixed(0)+'% and profit rose '+((z.p/a.p-1)*100).toFixed(0)+'%, so margin moved from '+pct(a.p/a.s)+' to '+pct(z.p/z.s)+'.</p>';
+f+='<p><b>Discounts:</b> lines discounted over 40% earn a margin of '+heavy.t+' across '+heavy.n.toLocaleString()+' order lines, while undiscounted lines earn '+db[0].t+'.</p>';
+f+='<p><b>Loss-makers:</b> '+(loss.length?loss.map(function(s){return s.l+' ('+money(s.v)+')'}).join(', ')+' lose money in this view.':'no sub-category loses money in this view.')+'</p>';
+f+='<p><b>Regions:</b> '+regs[0].r+' has the best margin ('+pct(regs[0].m)+') and '+regs[3].r+' the weakest ('+pct(regs[3].m)+').</p>';
+f+='<p><b>Recommendation:</b> cap discounts near 20%, starting with '+(loss.length?loss[loss.length-1].l:'the weakest categories')+', and run the cap as a one-quarter test in '+regs[3].r+'.</p>';
+document.getElementById('find').innerHTML=f}
+render();
+var CD=[[0,0,0,0,0,229,123,10394,5275],[0,0,0,0,1,53,19,2912,1044],[0,0,0,1,0,191,80,8590,3548],[0,0,0,1,1,64,22,3333,1156],[0,0,0,2,0,57,16,2737,707],[0,0,0,2,1,22,5,1292,248],[0,0,0,3,0,53,21,2560,986],[0,0,0,3,1,21,7,1222,386],[0,0,1,0,0,63,23,3044,1067],[0,0,1,0,1,22,7,1316,382],[0,0,1,1,0,41,7,2105,372],[0,0,1,1,1,23,2,1320,105],[0,0,1,2,0,28,7,1473,382],[0,0,1,2,1,11,0,660,0],[0,0,1,3,0,28,5,1326,242],[0,0,1,3,1,16,4,978,214],[0,0,2,0,0,53,10,2693,474],[0,0,2,0,1,24,4,1395,250],[0,0,2,1,0,26,2,1325,110],[0,0,2,1,1,17,0,993,0],[0,0,2,2,0,33,8,1711,355],[0,0,2,2,1,24,1,1472,35],[0,0,2,3,0,32,6,1602,257],[0,0,2,3,1,18,5,1040,274],[0,0,3,0,0,20,6,971,284],[0,0,3,0,1,10,0,619,0],[0,0,3,1,0,4,0,188,0],[0,0,3,1,1,1,0,70,0],[0,0,3,2,0,15,1,722,41],[0,0,3,2,1,7,1,433,55],[0,0,3,3,0,11,2,546,115],[0,0,3,3,1,6,0,376,0],[0,1,0,0,0,589,426,48141,35084],[0,1,0,0,1,42,23,3794,2082],[0,1,0,1,0,104,65,8084,5042],[0,1,0,1,1,19,12,1713,1111],[0,1,0,2,0,76,63,6193,5199],[0,1,0,2,1,11,8,1034,757],[0,1,0,3,0,64,38,5212,3165],[0,1,0,3,1,11,8,1013,738],[0,1,1,0,0,217,129,18964,11353],[0,1,1,0,1,38,21,3590,2001],[0,1,1,1,0,26,11,2193,958],[0,1,1,1,1,11,3,1020,299],[0,1,1,2,0,57,19,4740,1598],[0,1,1,2,1,14,4,1327,379],[0,1,1,3,0,53,26,4558,2280],[0,1,1,3,1,9,2,811,179],[0,1,2,0,0,224,117,20402,10731],[0,1,2,0,1,62,23,6064,2216],[0,1,2,1,0,27,11,2335,997],[0,1,2,1,1,4,0,371,0],[0,1,2,2,0,79,32,7064,2823],[0,1,2,2,1,23,10,2281,1066],[0,1,2,3,0,75,26,6477,2268],[0,1,2,3,1,27,7,2541,661],[0,1,3,0,0,108,44,10260,4190],[0,1,3,0,1,27,6,2733,625],[0,1,3,1,0,7,0,588,0],[0,1,3,1,1,3,0,296,0],[0,1,3,2,0,48,13,4369,1240],[0,1,3,2,1,19,0,1850,0],[0,1,3,3,0,42,13,3966,1237],[0,1,3,3,1,12,2,1196,202],[0,2,0,0,2,41,11,831,218],[0,2,0,1,2,263,63,5329,1262],[0,2,0,2,2,42,9,850,187],[0,2,0,3,2,42,5,853,104],[0,2,1,0,2,15,2,317,39],[0,2,1,1,2,40,2,815,44],[0,2,1,2,2,10,3,208,59],[0,2,1,3,2,15,1,314,25],[0,2,2,0,2,13,0,292,0],[0,2,2,1,2,21,1,434,20],[0,2,2,2,2,13,1,273,20],[0,2,2,3,2,7,0,138,0],[0,2,3,1,2,1,1,19,19],[0,2,3,3,2,1,0,20,0],[1,0,0,0,0,8,2,500,91],[1,0,0,0,1,3,1,200,60],[1,0,0,1,0,8,1,378,70],[1,0,0,1,1,10,1,545,74],[1,0,0,2,0,1,1,24,24],[1,0,0,2,1,3,0,166,0],[1,0,0,3,0,2,1,78,54],[1,0,0,3,1,7,0,352,0],[1,0,1,0,0,9,1,533,56],[1,0,1,0,1,6,0,372,0],[1,0,1,1,0,12,2,718,131],[1,0,1,1,1,16,1,1020,78],[1,0,1,2,0,11,2,702,113],[1,0,1,2,1,8,1,485,68],[1,0,1,3,0,8,2,400,93],[1,0,1,3,1,9,2,565,137],[1,0,2,0,0,21,2,1171,115],[1,0,2,0,1,25,0,1562,0],[1,0,2,1,0,26,2,1450,89],[1,0,2,1,1,39,7,2422,453],[1,0,2,2,0,20,0,1179,0],[1,0,2,2,1,33,3,2183,212],[1,0,2,3,0,35,1,2040,63],[1,0,2,3,1,42,7,2707,505],[1,0,3,0,0,19,2,1139,105],[1,0,3,0,1,25,3,1774,205],[1,0,3,1,0,12,0,621,0],[1,0,3,1,1,14,0,909,0],[1,0,3,2,0,24,2,1371,122],[1,0,3,2,1,45,2,2981,158],[1,0,3,3,0,28,3,1719,203],[1,0,3,3,1,41,1,2730,79],[1,1,0,0,0,3,0,285,0],[1,1,0,0,1,1,1,106,106],[1,1,0,1,0,2,1,190,96],[1,1,0,3,0,1,0,85,0],[1,1,1,0,1,4,1,369,101],[1,1,1,1,0,2,0,175,0],[1,1,1,1,1,3,1,297,106],[1,1,1,2,0,3,0,271,0],[1,1,1,2,1,3,2,288,199],[1,1,1,3,0,5,0,452,0],[1,1,1,3,1,3,0,262,0],[1,1,2,0,0,37,9,3504,858],[1,1,2,0,1,22,8,2134,810],[1,1,2,1,0,7,3,652,274],[1,1,2,1,1,3,1,313,110],[1,1,2,2,0,33,3,3079,263],[1,1,2,2,1,17,1,1663,105],[1,1,2,3,0,16,3,1526,305],[1,1,2,3,1,19,3,1919,315],[1,1,3,0,0,79,20,7851,1985],[1,1,3,0,1,50,12,5186,1290],[1,1,3,1,0,9,1,868,100],[1,1,3,1,1,10,0,1025,0],[1,1,3,2,0,55,10,5325,1018],[1,1,3,2,1,46,7,4787,760],[1,1,3,3,0,61,8,5905,803],[1,1,3,3,1,45,9,4727,970],[1,2,0,0,2,8,0,169,0],[1,2,0,1,2,49,2,994,40],[1,2,0,2,2,8,1,160,20],[1,2,0,3,2,10,1,208,19],[1,2,1,0,2,4,0,85,0],[1,2,1,1,2,54,0,1082,0],[1,2,1,2,2,20,1,418,20],[1,2,1,3,2,17,0,349,0],[1,2,2,0,2,12,1,265,20],[1,2,2,1,2,46,0,955,0],[1,2,2,2,2,37,1,785,25],[1,2,2,3,2,28,0,584,0],[1,2,3,0,2,11,1,241,25],[1,2,3,1,2,15,0,319,0],[1,2,3,2,2,24,1,519,21],[1,2,3,3,2,21,0,447,0],[2,0,0,1,0,2,0,119,0],[2,0,0,1,1,10,0,578,0],[2,0,0,2,1,2,0,114,0],[2,0,0,3,1,4,0,236,0],[2,0,1,0,0,1,0,64,0],[2,0,1,1,0,2,0,103,0],[2,0,1,1,1,12,0,563,0],[2,0,1,2,0,1,0,61,0],[2,0,1,2,1,4,0,278,0],[2,0,1,3,0,1,0,79,0],[2,0,1,3,1,4,0,290,0],[2,0,2,0,0,3,0,208,0],[2,0,2,0,1,5,0,323,0],[2,0,2,1,0,3,0,190,0],[2,0,2,1,1,19,0,1277,0],[2,0,2,2,0,4,0,213,0],[2,0,2,2,1,14,0,887,0],[2,0,2,3,0,6,0,348,0],[2,0,2,3,1,25,1,1696,54],[2,0,3,0,0,16,3,1026,183],[2,0,3,0,1,33,1,2487,48],[2,0,3,1,0,6,0,404,0],[2,0,3,1,1,55,0,3912,0],[2,0,3,2,0,36,1,2313,81],[2,0,3,2,1,163,2,11943,132],[2,0,3,3,0,34,0,2231,0],[2,0,3,3,1,163,4,12304,307],[2,1,1,0,0,1,0,97,0],[2,1,2,0,0,2,1,205,105],[2,1,2,0,1,8,1,813,80],[2,1,2,1,1,5,1,503,96],[2,1,2,2,0,3,0,305,0],[2,1,2,2,1,8,0,787,0],[2,1,2,3,1,9,0,954,0],[2,1,3,0,0,28,2,2819,199],[2,1,3,0,1,53,5,5729,532],[2,1,3,1,0,1,0,111,0],[2,1,3,1,1,15,0,1592,0],[2,1,3,2,0,46,6,4584,625],[2,1,3,2,1,105,9,11247,956],[2,1,3,3,0,40,1,3832,106],[2,1,3,3,1,105,5,11282,549],[2,2,0,0,2,1,0,20,0],[2,2,0,1,2,32,0,666,0],[2,2,0,2,2,7,0,155,0],[2,2,0,3,2,10,0,216,0],[2,2,1,1,2,44,0,926,0],[2,2,1,2,2,7,0,159,0],[2,2,1,3,2,13,0,287,0],[2,2,2,0,2,9,0,198,0],[2,2,2,1,2,76,1,1584,24],[2,2,2,2,2,35,0,745,0],[2,2,2,3,2,40,1,858,25],[2,2,3,0,2,8,0,178,0],[2,2,3,1,2,100,1,2211,19],[2,2,3,2,2,129,1,2875,20],[2,2,3,3,2,127,1,2815,25]],CC=['Month-to-month','One year','Two year'],CI=['DSL','Fiber optic','No internet'],CT=['0–12','13–24','25–48','49–72'],CP=['Electronic check','Mailed check','Bank transfer (auto)','Credit card (auto)'],CS=['No tech support','Tech support','No internet'];
+var cs={c:'All',i:'All'};
+function cseg(id,items,key){var el=document.getElementById(id);el.innerHTML='';
+['All'].concat(items).forEach(function(x){var b=document.createElement('button');b.textContent=x;
+b.setAttribute('aria-pressed',String(cs[key]===x));b.onclick=function(){cs[key]=x;renderC()};el.appendChild(b)})}
+function CF(skipC){return CD.filter(function(x){return(skipC||cs.c==='All'||x[0]===CC.indexOf(cs.c))&&(cs.i==='All'||x[1]===CI.indexOf(cs.i))})}
+function cgrp(rows,idx,labels,base){return labels.map(function(l,k){var r=rows.filter(function(x){return x[idx]===k}),n=S(r,5),c=S(r,6),v=n?c/n:0;return{l:l,v:v,t:pct(v)+' ('+n.toLocaleString()+')',n:n,c:(n&&v>base)?'--neg':'--a'}}).filter(function(x){return x.n>0})}
+function renderC(){
+cseg('cContract',CC,'c');cseg('cInternet',CI,'i');
+var rows=CF(),n=S(rows,5),ch=S(rows,6),base=n?ch/n:0,mrr=S(rows,8);
+document.getElementById('cKpis').innerHTML='<div class="kpi"><span>Customers</span><strong>'+n.toLocaleString()+'</strong></div><div class="kpi"><span>Churn rate</span><strong>'+pct(base)+'</strong></div><div class="kpi"><span>Monthly revenue lost</span><strong>'+money(mrr)+'</strong></div>';
+var ten=cgrp(rows,2,CT,base),con=cgrp(CF(true),0,CC,base),pay=cgrp(rows,3,CP,base),tec=cgrp(rows,4,CS,base);
+[['cTen',ten,'Churn by tenure'],['cCon',con,'Churn by contract'],['cPay',pay,'Churn by payment method'],['cTec',tec,'Churn by tech support']].forEach(function(z){var b=document.getElementById(z[0]);b.innerHTML=hbars(z[1],330,z[0]==='cPay'?46:44,128,z[2]);tips(b)});
+var mx=function(a){return a.slice().sort(function(p,q){return q.v-p.v})},t=mx(ten),p=mx(pay),ts=tec.filter(function(x){return x.l!=='No internet'});
+var f='<h3>What the data says'+(cs.c!=='All'||cs.i!=='All'?' ('+[cs.c!=='All'?cs.c:'',cs.i!=='All'?cs.i:''].filter(Boolean).join(', ')+')':'')+'</h3>';
+f+='<p><b>Scale:</b> '+ch.toLocaleString()+' of '+n.toLocaleString()+' customers left, taking about '+money(mrr)+' in monthly charges ('+money(mrr*12)+' a year) with them.</p>';
+if(t.length>1)f+='<p><b>Tenure:</b> customers in months '+t[0].l+' churn at '+pct(t[0].v)+', against '+pct(t[t.length-1].v)+' for months '+t[t.length-1].l+'. Early months are the danger zone.</p>';
+if(p.length>1)f+='<p><b>Payment:</b> '+p[0].l+' has the highest churn ('+pct(p[0].v)+'), '+p[p.length-1].l+' the lowest ('+pct(p[p.length-1].v)+').</p>';
+if(ts.length>1)f+='<p><b>Support:</b> customers with tech support churn at '+pct(ts[1].v)+' versus '+pct(ts[0].v)+' without it.</p>';
+f+='<p><b>Recommendation:</b> target first-year month-to-month customers with an annual-contract offer plus autopay, and bundle tech support into it.</p>';
+document.getElementById('cFind').innerHTML=f;renderX()}
+renderC();
+function renderX(){
+var ov=0.161,hr=[['Overtime: yes',.305],['Overtime: no',.104],['Pay under $3K',.286],['Pay $10K+',.089],['Tenure 0–2 yrs',.298],['Tenure 11+ yrs',.081]].map(function(a){return{l:a[0],v:a[1],t:pct(a[1]),c:a[1]>ov?'--neg':'--a'}});
+var b=document.getElementById('xHR');b.innerHTML=hbars(hr,420,34,130,'Attrition rate by group; red is above the 16.1% average');tips(b);
+var nf=[[2015,90],[2016,456],[2017,1300],[2018,1782],[2019,2349]].map(function(a){return{l:'Added in '+a[0],v:a[1],t:a[1].toLocaleString()}});
+var c=document.getElementById('xNF');c.innerHTML=hbars(nf,420,34,110,'Netflix titles added per year');tips(c)}
+if(window.matchMedia)matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){render();renderC()});
+})();
+</script>
+</body>
+</html>
